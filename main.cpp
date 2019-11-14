@@ -6,71 +6,67 @@ using namespace std;
 int arrSize;
 
 int inputArrSize();
-void inputArray(int[]);
-void displayArray(int []);
-void callArray(int []);
+void inputArray(string[], string [], int[], int[], string[], string[]);
+void displayArray(string [], string [], int[], int[], string[], string[]);
 
 int main()
 {
-
-   int age[arrSize];
-   inputArray(age);
-   displayArray(age);
-   callArray(age);
+   string fname [10], lname [10], email [10], address [10];
+   int age [10], contactno[10];
+   inputArray(fname, lname, age, contactno, email, address);
+   displayArray(fname, lname, age, contactno, email, address);
 
     return 0;
 }
 
 int inputArrSize (){
 
-    cout << "Enter array size. Up to 4 only: ";
+    cout << "Enter array size: ";
     cin >> arrSize;
 
     return arrSize;
 }
 
-void inputArray(int age[]){
+void inputArray(string fname[], string lname[], int age [], int contactno[], string email[], string address[]){
 
 inputArrSize();
-for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter Value for position " <<i+1<<" : ";
+    for (int i= 0; i<=arrSize-1; i++) {
+        cout << "Enter Firstname: " <<i+1<<" : ";
+        cin >> fname [i];
+    }
+
+    for (int i= 0; i<=arrSize-1; i++) {
+        cout << "Enter Lastname: " <<i+1<<" : ";
+        cin >> lname [i];
+    }
+    for (int i= 0; i<=arrSize-1; i++) {
+        cout << "Enter age: " <<i+1<<" : ";
         cin >> age [i];
+    }
+
+    for (int i= 0; i<=arrSize-1; i++) {
+        cout << "Enter contact number: " <<i+1<<" : ";
+        cin >> contactno [i];
+    }
+
+    for (int i= 0; i<=arrSize-1; i++) {
+        cout << "Enter email: " <<i+1<<" : ";
+        cin >> email[i];
+    }
+
+    for (int i= 0; i<=arrSize-1; i++) {
+        cout << "Enter address: " <<i+1<<" : ";
+        cin >> address[i];
     }
 }
 
-void displayArray(int age[]){
+void displayArray(string fname[], string lname [], int age[], int contactno[], string email[], string address[]){
 
-for (int i= 0; i<=arrSize-1; i++) {
-        cout << "The Value at position " << i +1<< " is "<<age[i]<< endl;
+system ("CLS");
+    cout << "| Firstname | Lastname | Age | Contacts | Email | Address"<< endl;
+    for (int i= 0; i<=arrSize-1; i++) {
+    cout << "\n  " << fname [i]<< "       |    " << lname[i] << "       |    " << age[i] << "       |    " << contactno[i] << "       |    " << email[i]<< "       |    " << address[i] <<endl;
 
     }
  }
 
-void callArray (int age []){
-int choice;
-
-system("CLS");
-
-    cout << "Enter the position of the array that you want to call: "<< endl;
-    cin >> choice;
-
-    if (choice == 1)
-    {
-      cout << "The value in place at position 1 is: " << age [0] << endl;
-    }
-    if (choice == 2)
-    {
-      cout << "The value in place at position 2 is: " << age [1] << endl;
-    }
-    if (choice == 3)
-    {
-      cout << "The value in place at position 3 is: " << age [2] << endl;
-    }
-    if (choice == 4)
-    {
-      cout << "The value in place at position 4 is: " << age [3] << endl;
-    }
-
-
-
-}
