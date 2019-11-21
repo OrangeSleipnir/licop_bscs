@@ -3,70 +3,63 @@
 
 using namespace std;
 
-int arrSize;
+class product
+{
+    public:
+        void addproduct(int Product_id,int  Price,int  Expiration_date,string Product_Name,string Manufacturer);
+        double DisplayProducts(void);
+        string choice;
 
-int inputArrSize();
-void inputArray(string[], string [], int[], int[], string[], string[]);
-void displayArray(string [], string [], int[], int[], string[], string[]);
+    product();
+
+    private:
+        int Product_id, Price, Expiration_date;
+        string Product_Name, Manufacturer;
+};
+
+product::product(void)
+{
+
+    cout << "\t\t Welcome to MAH STORE! \n\n"<< endl;
+
+    do{
+      {
+
+        cout<< "Enter Product I.D: ";
+        cin >> Product_id;
+        cout<< "Enter Prodct Name: ";
+        cin >> Product_Name;
+        cout<< "Enter Price: ";
+        cin >> Price;
+        cout<< "Enter Manufacturer: ";
+        cin >> Manufacturer;
+        cout<< "Enter Expiration Date: ";
+        cin >> Expiration_date;
+      }
+        cout<< "\t\t Do you want to add products? "<< endl;
+        cin>> choice;
+      }
+
+    while (choice == "Y"|| choice == "y");
+}
+
+
+double product::DisplayProducts(void)
+{
+
+    cout<< "The product I.D. is: " << Product_id << endl;
+    cout<< "The product name is: " << Product_Name<< endl;
+    cout<< "The Price is: " << Price<< endl;
+    cout<< "The product manufacturer is: " <<Manufacturer<< endl;
+    cout<< "The Product expiration is: " << Expiration_date<< endl;
+}
+
 
 int main()
 {
-   string fname [10], lname [10], email [10], address [10];
-   int age [10], contactno[10];
-   inputArray(fname, lname, age, contactno, email, address);
-   displayArray(fname, lname, age, contactno, email, address);
+   product product;
 
-    return 0;
+   product.DisplayProducts();
+
+return 0;
 }
-
-int inputArrSize (){
-
-    cout << "Enter array size: ";
-    cin >> arrSize;
-
-    return arrSize;
-}
-
-void inputArray(string fname[], string lname[], int age [], int contactno[], string email[], string address[]){
-
-inputArrSize();
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter Firstname: " <<i+1<<" : ";
-        cin >> fname [i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter Lastname: " <<i+1<<" : ";
-        cin >> lname [i];
-    }
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter age: " <<i+1<<" : ";
-        cin >> age [i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter contact number: " <<i+1<<" : ";
-        cin >> contactno [i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter email: " <<i+1<<" : ";
-        cin >> email[i];
-    }
-
-    for (int i= 0; i<=arrSize-1; i++) {
-        cout << "Enter address: " <<i+1<<" : ";
-        cin >> address[i];
-    }
-}
-
-void displayArray(string fname[], string lname [], int age[], int contactno[], string email[], string address[]){
-
-system ("CLS");
-    cout << "| Firstname | Lastname | Age | Contacts | Email | Address"<< endl;
-    for (int i= 0; i<=arrSize-1; i++) {
-    cout << "\n  " << fname [i]<< "       |    " << lname[i] << "       |    " << age[i] << "       |    " << contactno[i] << "       |    " << email[i]<< "       |    " << address[i] <<endl;
-
-    }
- }
-
